@@ -36,3 +36,15 @@
     transform: rotate(360deg);
   }
 }
+
+.carousel-inner {
+  height: 500px; /* Or any fixed height you prefer */
+}
+
+.carousel-item img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
