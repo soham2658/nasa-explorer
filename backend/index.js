@@ -4,6 +4,9 @@ const axios = require('axios');
 
 const app = express();
 app.use(cors());
+require('dotenv').config();
+app.use(express.json());
+
 
 const PORT = 5000;
 const apiKey = 'eoty6upk8Ys7Jc3SfD9tswg8bD9dqy4r0lPmLhQF';
@@ -81,6 +84,34 @@ app.get('/api/asteroids', async (req, res) => {
 });
 
 
+app.post('/api/chat', async (req, res) => {
+  const { question } = req.body;
+
+  try {
+    const response = await axios.post(
+      'https://openrouter.ai/api/v1/chat/completions',
+      {
+        model: 'mistralai/mistral-small-3.2-24b-instruct', // You can change to Claude or Mixtral, etc.
+        messages: [
+          { role: 'system', content: 'You are a helpful space expert chatbot.' },
+          { role: 'user', content: question },
+        ],
+      },
+      {
+        headers: {
+          'Authorization': `Bearer ${process.env.OPENROUTER_API_KEY}`,
+          'Content-Type': 'application/json',
+        },
+      }
+    );
+
+    const answer = response.data.choices[0].message.content;
+    res.json({ answer });
+  } catch (err) {
+    console.error('OpenRouter error:', err.response?.data || err.message);
+    res.status(500).json({ error: 'ChatBot failed to respond.' });
+  }
+});
 
 
 app.listen(PORT, () => {

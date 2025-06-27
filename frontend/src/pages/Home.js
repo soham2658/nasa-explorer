@@ -5,7 +5,7 @@ import SpaceNews from '../components/NewsSection'
 function Home() {
   return (
     <div className="container">
-      <h2>🛰️ Welcome to Space Today</h2>
+      <h2>Welcome to Space Today</h2>
       <CarouselHome />
       <SpaceNews />
     </div>
