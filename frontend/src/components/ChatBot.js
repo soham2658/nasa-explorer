@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { GiSpaceSuit } from "react-icons/gi";
 
 function ChatBot() {
   const [messages, setMessages] = useState([]);
@@ -34,13 +35,13 @@ function ChatBot() {
       {isOpen ? (
         <div className="chatbot-box">
           <div className="chatbot-header">
-            <span>🛰️ Ask SpaceBot</span>
+            <span>Ask SpaceBot</span>
             <button onClick={() => setIsOpen(false)} className="btn-close"></button>
           </div>
           <div className="chatbot-body">
             {messages.map((msg, i) => (
               <div key={i} className={`chat-message ${msg.sender}`}>
-                <strong>{msg.sender === 'user' ? 'You' : 'Bot'}:</strong> {msg.text}
+                <strong>{msg.sender === 'user' ? 'You' : 'SpaceBot'}:</strong> {msg.text}
               </div>
             ))}
             {loading && <p><em>Thinking...</em></p>}
@@ -57,6 +58,7 @@ function ChatBot() {
         </div>
       ) : (
         <button className="chatbot-toggle" onClick={() => setIsOpen(true)}>
+            <GiSpaceSuit size={24} color="#fff" />
         </button>
       )}
     </div>

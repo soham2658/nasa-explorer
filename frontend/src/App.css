@@ -130,4 +130,57 @@
   cursor: pointer;
 }
 
+.chatbot-toggle {
+  background-color: #1e1e2f;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Navbar container and background */
+.navbar {
+  background-color: #1e1e2f !important;  /* dark bluish */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+/* Brand styling */
+.navbar-brand {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: #f9a825 !important; /* bright yellow */
+}
+
+/* Navbar links */
+.nav-link {
+  color: #ccc !important;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link:focus {
+  color: #f9a825 !important;
+}
+
+/* Navbar collapse background on mobile */
+@media (max-width: 991px) {
+  .navbar-nav {
+    background-color: #1e1e2f;
+    padding: 1rem;
+  }
+}
+
+/* Optional: Navbar toggler color */
+.navbar-toggler {
+  border-color: #f9a825;
+}
+
+.navbar-toggler-icon {
+  filter: invert(1) sepia(1) saturate(5) hue-rotate(30deg);
+}
+
 
