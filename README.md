@@ -13,7 +13,6 @@ Check it out here: https://nasa-explorer-zeta-six.vercel.app/
 - **APOD (Astronomy Picture of the Day)**
 - **Asteroid Information**
 - **Chatbot** for space-related interactions
-- Responsive Navigation Bar & Footer
 
 ##  Setup Instructions
 
