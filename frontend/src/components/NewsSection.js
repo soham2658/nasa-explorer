@@ -11,7 +11,8 @@ function SpaceNews() {
     async function fetchNews() {
       try {
         const response = await fetch(
-          `https://newsapi.org/v2/everything?q=space&language=en&pageSize=30&apiKey=${NEWS_API_KEY}`
+          `fetch('https://nasa-explorer-794i.onrender.com/api/news')
+`
         );
         const data = await response.json();
         setArticles(data.articles || []);

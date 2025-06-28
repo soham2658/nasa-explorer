@@ -91,7 +91,7 @@ app.post('/api/chat', async (req, res) => {
     const response = await axios.post(
       'https://openrouter.ai/api/v1/chat/completions',
       {
-        model: 'mistralai/mistral-small-3.2-24b-instruct', // You can change to Claude or Mixtral, etc.
+        model: 'mistralai/mistral-small-3.2-24b-instruct',
         messages: [
           { role: 'system', content: 'You are a helpful space expert chatbot.' },
           { role: 'user', content: question },
@@ -113,6 +113,24 @@ app.post('/api/chat', async (req, res) => {
   }
 });
 
+app.get('/api/news', async (req, res) => {
+  try {
+    const response = await axios.get('https://newsapi.org/v2/everything', {
+      params: {
+        q: 'space',
+        language: 'en',
+        pageSize: 6,
+        sortBy: 'publishedAt',
+        apiKey: process.env.NEWS_API_KEY,
+      },
+    });
+
+    res.json(response.data.articles);
+  } catch (err) {
+    console.error('News API error:', err.message);
+    res.status(500).json({ error: 'Failed to fetch news' });
+  }
+});
 
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
