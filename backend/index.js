@@ -115,22 +115,24 @@ app.post('/api/chat', async (req, res) => {
 
 app.get('/api/news', async (req, res) => {
   try {
-    const response = await axios.get('https://newsapi.org/v2/everything', {
+    const response = await axios.get('https://api.thenewsapi.com/v1/news/all', {
       params: {
-        q: 'space',
+        api_token: process.env.THENEWSAPI_KEY,
+        categories: 'science',
         language: 'en',
-        pageSize: 6,
-        sortBy: 'publishedAt',
-        apiKey: process.env.NEWS_API_KEY,
+        limit: 6,
+        search: 'space'
       },
     });
 
-    res.json(response.data.articles);
+    res.json(response.data.data); // Their news articles are inside `data`
   } catch (err) {
-    console.error('News API error:', err.message);
+    console.error('TheNewsAPI error:', err.response?.data || err.message);
     res.status(500).json({ error: 'Failed to fetch news' });
   }
 });
+
+
 
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
