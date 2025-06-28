@@ -11,6 +11,7 @@ useEffect(() => {
     try {
       const response = await fetch('https://nasa-explorer-794i.onrender.com/api/news');
       const data = await response.json();
+      
       setArticles(Array.isArray(data) ? data : []);
     } catch (err) {
       console.error('Failed to fetch news:', err);
