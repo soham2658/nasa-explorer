@@ -6,7 +6,7 @@ A full-stack web application using **React**, **Node.js**, and **Express** that 
 
 ## Live Application
 
-[Deployed App on Vercel](https://nasa-explorer-2jojuyng5-soham2658s-projects.vercel.app)
+[Deployed App on Vercel](https://nasa-explorer-zeta-six.vercel.app/)
 
 ---
 
