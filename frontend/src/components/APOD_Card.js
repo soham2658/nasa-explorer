@@ -7,22 +7,11 @@ function ApodCard() {
     const dateStr = selectedDate.toISOString().split('T')[0];
     useEffect(() => {
     // APOD
-    fetch(`http://localhost:5000/api/apod?date=${dateStr}`)
+    fetch(`https://nasa-explorer-794i.onrender.com/api/apod?date=${dateStr}`)
       .then(res => res.json())
       .then(setApod)
       .catch(console.error);
 
-    // // Asteroids
-    // fetch(`http://localhost:5000/api/asteroids?date=${dateStr}`)
-    //   .then(res => res.json())
-    //   .then(data => setAsteroids(Array.isArray(data) ? data : []))
-    //   .catch(() => setAsteroids([]));
-
-    // // EPIC Earth Image (only today)
-    // fetch('http://localhost:5000/api/earth')
-    //   .then(res => res.json())
-    //   .then(data => setEarthImage(data.imageUrl))
-    //   .catch(() => setEarthImage(null));
   }, []);
   return (
         <div className="card mb-4 shadow-sm">

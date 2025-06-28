@@ -45,7 +45,7 @@ function AsteroidChart() {
     };
     useEffect(() => {
     // Asteroids
-    fetch(`http://localhost:5000/api/asteroids?date=${dateStr}`)
+    fetch(`https://nasa-explorer-794i.onrender.com/api/asteroids?date=${dateStr}`)
       .then(res => res.json())
       .then(data => setAsteroids(Array.isArray(data) ? data : []))
       .catch(() => setAsteroids([]));
